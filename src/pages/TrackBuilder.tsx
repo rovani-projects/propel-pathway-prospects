@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +23,6 @@ import {
   Copy,
   ChevronDown,
   ChevronRight,
-  DragHandleDots2Icon,
   GripVertical
 } from "lucide-react";
 import { StepBuilder } from "@/components/track-builder/StepBuilder";
@@ -33,29 +31,29 @@ import { StepLibrary } from "@/components/track-builder/StepLibrary";
 
 const TrackBuilder = () => {
   const [activeTab, setActiveTab] = useState("library");
-  const [selectedTrack, setSelectedTrack] = useState("teacher-cert");
+  const [selectedTrack, setSelectedTrack] = useState("medical-assistant");
 
   const existingTracks = [
     {
-      id: "teacher-cert",
-      name: "Teacher Certification Track",
-      description: "Complete certification process for new teachers",
+      id: "medical-assistant",
+      name: "Medical Assistant",
+      description: "Comprehensive training track for medical assistant certification",
       steps: 5,
       active: true,
       applicants: 12
     },
     {
-      id: "admin-track",
-      name: "Administrative Track",
-      description: "Administrative position application process",
+      id: "sterile-processing",
+      name: "Sterile Processing Tech",
+      description: "Specialized track for sterile processing technician training",
       steps: 4,
       active: true,
       applicants: 3
     },
     {
-      id: "substitute-track",
-      name: "Substitute Teacher Track",
-      description: "Fast-track process for substitute teachers",
+      id: "default-application",
+      name: "Default Application Track",
+      description: "Standard application process for general entry",
       steps: 3,
       active: false,
       applicants: 0
