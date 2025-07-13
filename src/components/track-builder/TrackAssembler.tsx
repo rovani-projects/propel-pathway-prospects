@@ -1,20 +1,18 @@
 
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Shield, 
-  FileText, 
-  Calendar, 
-  CheckCircle, 
-  Info,
-  ArrowDown,
-  Plus,
-  GripVertical,
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Calendar,
   Edit,
+  FileText,
+  GripVertical,
+  Info,
+  Plus,
+  Shield,
   Trash2
 } from "lucide-react";
+import { useState } from "react";
 
 interface TrackAssemblerProps {
   selectedTrack: string;
@@ -22,42 +20,42 @@ interface TrackAssemblerProps {
 
 export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
   const [trackSteps, setTrackSteps] = useState([
-    { 
-      id: "app-form", 
-      name: "Application Submission", 
-      type: "form", 
+    {
+      id: "app-form",
+      name: "Application Submission",
+      type: "form",
       order: 1,
       estimatedDays: 1,
       required: true
     },
-    { 
-      id: "doc-upload", 
-      name: "Document Upload", 
-      type: "upload", 
+    {
+      id: "doc-upload",
+      name: "Document Upload",
+      type: "upload",
       order: 2,
       estimatedDays: 3,
       required: true
     },
-    { 
-      id: "bg-check", 
-      name: "Background Check", 
-      type: "manual", 
+    {
+      id: "bg-check",
+      name: "Background Check",
+      type: "manual",
       order: 3,
       estimatedDays: 7,
       required: true
     },
-    { 
-      id: "interview", 
-      name: "Interview Scheduling", 
-      type: "calendly", 
+    {
+      id: "interview",
+      name: "Interview Scheduling",
+      type: "calendly",
       order: 4,
       estimatedDays: 5,
       required: true
     },
-    { 
-      id: "final-review", 
-      name: "Final Review", 
-      type: "informational", 
+    {
+      id: "final-review",
+      name: "Final Review",
+      type: "informational",
       order: 5,
       estimatedDays: 2,
       required: true
@@ -92,8 +90,8 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-xl">Teacher Certification Track</CardTitle>
-              <CardDescription>Complete certification process for new teachers</CardDescription>
+              <CardTitle className="text-xl">Default Application Track</CardTitle>
+              <CardDescription>Standard application process for general entry</CardDescription>
             </div>
             <div className="text-right">
               <div className="text-2xl font-bold text-blue-600">{trackSteps.length}</div>
@@ -124,7 +122,7 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
             {trackSteps.map((step, index) => {
               const typeInfo = getStepTypeInfo(step.type);
               const Icon = typeInfo.icon;
-              
+
               return (
                 <div key={step.id}>
                   <Card className="hover:shadow-md transition-all">
@@ -139,7 +137,7 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
                             <Icon className="w-4 h-4 text-white" />
                           </div>
                         </div>
-                        
+
                         <div className="flex-1">
                           <div className="font-medium text-gray-900">{step.name}</div>
                           <div className="text-sm text-gray-500">
@@ -161,12 +159,6 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
                       </div>
                     </CardContent>
                   </Card>
-                  
-                  {index < trackSteps.length - 1 && (
-                    <div className="flex justify-center py-2">
-                      <ArrowDown className="w-5 h-5 text-gray-400" />
-                    </div>
-                  )}
                 </div>
               );
             })}
@@ -180,7 +172,7 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
             {availableSteps.map((step) => {
               const typeInfo = getStepTypeInfo(step.type);
               const Icon = typeInfo.icon;
-              
+
               return (
                 <Card key={step.id} className="cursor-pointer hover:shadow-md transition-all">
                   <CardContent className="p-3">
@@ -231,8 +223,8 @@ export const TrackAssembler = ({ selectedTrack }: TrackAssemblerProps) => {
 
       {/* Actions */}
       <div className="flex justify-between">
-        <Button variant="outline">
-          Preview Track
+        <Button variant="destructive">
+          Archive Track
         </Button>
         <div className="space-x-2">
           <Button variant="outline">Save Draft</Button>

@@ -1,30 +1,24 @@
 
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
-import { 
-  Shield, 
-  Users, 
-  FileText, 
-  Calendar, 
-  CheckCircle, 
-  Clock, 
-  ArrowRight, 
-  Database, 
-  Zap, 
-  Lock, 
-  Globe, 
-  TrendingUp,
-  Building2,
-  Target,
-  DollarSign,
-  Calendar as CalendarIcon,
-  Star,
-  Workflow
+import {
+    ArrowRight,
+    Building2,
+    Calendar,
+    Calendar as CalendarIcon,
+    CheckCircle,
+    Clock,
+    FileText,
+    Shield,
+    Star,
+    Target,
+    Users,
+    Workflow,
+    Zap
 } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
   const [activeTrack, setActiveTrack] = useState(0);
@@ -47,7 +41,7 @@ const Index = () => {
       items: ["Supabase Schema", "RLS Policies", "Security Framework", "ERD Diagrams"]
     },
     {
-      phase: "Phase 2", 
+      phase: "Phase 2",
       title: "Core Portal Development",
       description: "User authentication, track builder, and step management",
       timeline: "Week 3-4",
@@ -59,7 +53,7 @@ const Index = () => {
       title: "Integration & Testing",
       description: "n8n workflows, third-party integrations, and comprehensive testing",
       timeline: "Week 5-6",
-      status: "upcoming", 
+      status: "upcoming",
       items: ["Salesforce Sync", "Calendly Integration", "FormStack Connection", "QA Testing"]
     }
   ];
@@ -123,14 +117,14 @@ const Index = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Flexible Track & Step System</h2>
             <p className="text-lg text-gray-600">Experience how applicants progress through customizable workflows</p>
           </div>
-          
+
           <Card className="p-8">
             <div className="flex flex-col lg:flex-row gap-8">
               {/* Track Progress */}
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Teacher Certification Track</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">Medical Assistant Track</h3>
                     <p className="text-gray-600">Applicant: Sarah Johnson</p>
                   </div>
                   <div className="text-right">
@@ -138,12 +132,12 @@ const Index = () => {
                     <div className="text-sm text-gray-500">Complete</div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   {trackSteps.map((step, index) => {
                     const Icon = step.icon;
                     return (
-                      <div 
+                      <div
                         key={step.id}
                         className={`flex items-center space-x-4 p-4 rounded-lg border transition-all cursor-pointer ${
                           step.status === 'completed' ? 'bg-green-50 border-green-200' :
@@ -195,7 +189,7 @@ const Index = () => {
                       </div>
                       <Progress value={75} className="h-2" />
                     </div>
-                    
+
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-green-500" />
@@ -471,7 +465,7 @@ const Index = () => {
           <p className="text-lg text-gray-600 mb-8">
             Let's discuss your specific needs and customize this solution for Propel America's unique requirements.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
               <CalendarIcon className="w-5 h-5 mr-2" />

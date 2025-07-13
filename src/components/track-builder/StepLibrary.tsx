@@ -1,28 +1,28 @@
 
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { 
-  Shield, 
-  FileText, 
-  Calendar, 
-  CheckCircle, 
-  Info,
-  Edit,
-  Trash2,
+import {
+  Calendar,
   Copy,
+  Edit,
+  FileText,
+  Filter,
+  Info,
   Search,
-  Filter
+  Shield,
+  Trash2,
+  UploadIcon
 } from "lucide-react";
+import { useState } from "react";
 
 export const StepLibrary = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const stepTypes = [
     { id: "form", label: "Form", icon: FileText, color: "bg-blue-500" },
-    { id: "upload", label: "Upload", icon: FileText, color: "bg-green-500" },
+    { id: "upload", label: "Upload", icon: UploadIcon, color: "bg-green-500" },
     { id: "manual", label: "Manual", icon: Shield, color: "bg-orange-500" },
     { id: "calendly", label: "Meeting", icon: Calendar, color: "bg-purple-500" },
     { id: "informational", label: "Info", icon: Info, color: "bg-gray-500" }
@@ -35,7 +35,7 @@ export const StepLibrary = () => {
       type: "manual",
       description: "Comprehensive background verification process",
       statuses: ["Initial screening completed", "References contacted", "Awaiting final verification"],
-      usedIn: ["Teacher Certification", "Administrative Track"],
+      usedIn: ["Medical Assistant", "Sterile Processing Tech"],
       lastModified: "2024-01-15"
     },
     {
@@ -44,7 +44,7 @@ export const StepLibrary = () => {
       type: "form",
       description: "Initial application form with basic information",
       statuses: ["Form submitted", "Under review", "Additional info required"],
-      usedIn: ["Teacher Certification", "Administrative Track", "Substitute Track"],
+      usedIn: ["Medical Assistant", "Sterile Processing Tech", "Default Application Track"],
       lastModified: "2024-01-12"
     },
     {
@@ -53,7 +53,7 @@ export const StepLibrary = () => {
       type: "upload",
       description: "Upload required certification documents",
       statuses: ["Documents uploaded", "Under review", "Additional documents needed"],
-      usedIn: ["Teacher Certification", "Administrative Track"],
+      usedIn: ["Medical Assistant", "Sterile Processing Tech"],
       lastModified: "2024-01-10"
     },
     {
@@ -62,7 +62,7 @@ export const StepLibrary = () => {
       type: "calendly",
       description: "Schedule and conduct applicant interview",
       statuses: ["Interview scheduled", "Interview completed", "Follow-up required"],
-      usedIn: ["Teacher Certification", "Administrative Track"],
+      usedIn: ["Medical Assistant", "Sterile Processing Tech"],
       lastModified: "2024-01-08"
     },
     {
@@ -71,7 +71,7 @@ export const StepLibrary = () => {
       type: "informational",
       description: "Provide orientation details and expectations",
       statuses: ["Information sent", "Acknowledged"],
-      usedIn: ["Teacher Certification"],
+      usedIn: ["Medical Assistant"],
       lastModified: "2024-01-05"
     }
   ];
@@ -131,7 +131,7 @@ export const StepLibrary = () => {
         {filteredSteps.map((step) => {
           const typeInfo = getStepTypeInfo(step.type);
           const Icon = typeInfo.icon;
-          
+
           return (
             <Card key={step.id} className="hover:shadow-md transition-all">
               <CardHeader>
@@ -164,9 +164,9 @@ export const StepLibrary = () => {
                   <h4 className="font-medium text-sm text-gray-700 mb-2">Status Progression</h4>
                   <div className="flex flex-wrap gap-2">
                     {step.statuses.map((status, index) => (
-                      <Badge 
-                        key={index} 
-                        variant="outline" 
+                      <Badge
+                        key={index}
+                        variant="outline"
                         className="text-xs"
                       >
                         {index + 1}. {status}
