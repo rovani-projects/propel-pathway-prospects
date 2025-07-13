@@ -13,7 +13,8 @@ import {
   Plus,
   X,
   Save,
-  ArrowLeft
+  ArrowLeft,
+  CircleCheck
 } from "lucide-react";
 
 export const StepBuilder = () => {
@@ -228,7 +229,7 @@ export const StepBuilder = () => {
               {customStatuses.map((status, index) => (
                 <div key={index} className="flex items-center space-x-2 text-sm">
                   {index < 2 ? (
-                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <CircleCheck className="w-4 h-4 text-green-500" />
                   ) : (
                     <div className="w-4 h-4 border-2 border-gray-300 rounded-full"></div>
                   )}
