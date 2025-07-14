@@ -1,33 +1,15 @@
-import { useState } from "react";
+import { StepBuilder } from "@/components/track-builder/StepBuilder";
+import { StepLibrary } from "@/components/track-builder/StepLibrary";
+import { TrackAssembler } from "@/components/track-builder/TrackAssembler";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Progress } from "@/components/ui/progress";
-import { 
-  Shield, 
-  Users, 
-  FileText, 
-  Calendar, 
-  CheckCircle, 
-  Clock, 
-  ArrowRight, 
+import {
   Plus,
-  Settings,
-  Building2,
-  Workflow,
-  Edit,
-  Trash2,
-  Save,
-  Eye,
-  Copy,
-  ChevronDown,
-  ChevronRight,
-  GripVertical
+  Workflow
 } from "lucide-react";
-import { StepBuilder } from "@/components/track-builder/StepBuilder";
-import { TrackAssembler } from "@/components/track-builder/TrackAssembler";
-import { StepLibrary } from "@/components/track-builder/StepLibrary";
+import { useState } from "react";
 
 const TrackBuilder = () => {
   const [activeTab, setActiveTab] = useState("library");
@@ -76,13 +58,11 @@ const TrackBuilder = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                Manager Access
-              </Badge>
-              <Button size="sm">
-                <Eye className="w-4 h-4 mr-2" />
-                Preview Mode
-              </Button>
+              <a href="/">
+                <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                  Candidate View
+                </Badge>
+              </a>
             </div>
           </div>
         </div>
@@ -132,15 +112,14 @@ const TrackBuilder = () => {
                 Create New Track
               </Button>
             </div>
-            
+
             {/* Track Overview */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {existingTracks.map((track) => (
-                <Card 
+                <Card
                   key={track.id}
-                  className={`cursor-pointer transition-all hover:shadow-md ${
-                    selectedTrack === track.id ? 'ring-2 ring-blue-500' : ''
-                  }`}
+                  className={`cursor-pointer transition-all hover:shadow-md ${selectedTrack === track.id ? 'ring-2 ring-blue-500' : ''
+                    }`}
                   onClick={() => setSelectedTrack(track.id)}
                 >
                   <CardHeader className="pb-3">

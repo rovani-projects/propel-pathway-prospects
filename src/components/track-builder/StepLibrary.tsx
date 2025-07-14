@@ -105,11 +105,9 @@ export const StepLibrary = () => {
       </div>
 
       {/* Step Type Legend */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Step Types</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <Card className="pt-4 bg-slate-50">
+        <CardContent className="flex flex-row gap-x-10">
+          <h2 className="text-lg">Step Types</h2>
           <div className="flex flex-wrap gap-3">
             {stepTypes.map((type) => {
               const Icon = type.icon;

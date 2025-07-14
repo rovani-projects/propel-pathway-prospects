@@ -1,21 +1,21 @@
 
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Shield, 
-  FileText, 
-  Calendar, 
+import {
+  ArrowLeft,
+  Calendar,
+  CircleCheck,
+  FileText,
   Info,
   Plus,
-  X,
   Save,
-  ArrowLeft,
-  CircleCheck
+  Shield,
+  X
 } from "lucide-react";
+import { useState } from "react";
 
 export const StepBuilder = () => {
   const [stepName, setStepName] = useState("Background Check");
@@ -23,15 +23,15 @@ export const StepBuilder = () => {
   const [stepType, setStepType] = useState("manual");
   const [customStatuses, setCustomStatuses] = useState([
     "Initial screening completed",
-    "References contacted", 
+    "References contacted",
     "Awaiting final verification"
   ]);
   const [newStatus, setNewStatus] = useState("");
 
   const stepTypes = [
-    { id: "form", label: "Form Completion", icon: FileText, description: "Applicant fills out a form" },
+    { id: "form", label: "Form Completion", icon: FileText, description: "Applicant fills out a FormStack form" },
     { id: "upload", label: "Document Upload", icon: FileText, description: "Applicant uploads required documents" },
-    { id: "manual", label: "Manual Confirmation", icon: Shield, description: "Staff manually confirms completion" },
+    { id: "manual", label: "Manual Confirmation", icon: Shield, description: "Applicant manually completes a task" },
     { id: "calendly", label: "Meeting Scheduling", icon: Calendar, description: "Schedule via Calendly integration" },
     { id: "informational", label: "Informational Only", icon: Info, description: "Display information to applicant" }
   ];
@@ -214,7 +214,7 @@ export const StepBuilder = () => {
               </div>
               <Badge className="bg-blue-100 text-blue-800">In Progress</Badge>
             </div>
-            
+
             <div className="space-y-2 mb-4">
               <div className="flex justify-between text-sm">
                 <span>Progress</span>
